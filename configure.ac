@@ -1,0 +1,26 @@
+AC_INIT(libsystemd_glib, 1.0)
+AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_HEADERS([config.h])
+
+AM_INIT_AUTOMAKE([1.11])
+
+AM_SILENT_RULES([yes])
+
+AC_PROG_CC
+
+LT_INIT
+
+PKG_CHECK_MODULES(GIO, [gio-unix-2.0 ])
+
+GOBJECT_INTROSPECTION_CHECK([1.2.9])
+
+VALA_REQUIRED=0.20.0
+
+VAPIGEN_CHECK($VALA_REQUIRED)
+
+AC_OUTPUT([
+Makefile
+src/systemd-glib.pc
+src/Makefile
+])

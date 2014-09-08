@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+datarootdir=@datarootdir@
+datadir=@datadir@
+includedir=@includedir@/libsystemd-glib
+
+Name: systemd-glib
+Version: 1.0
+Description: GDBus client library for systemd
+Requires: gio-2.0
+Libs: -L${libdir} -lsystemd-glib
+Cflags: -I${includedir}
