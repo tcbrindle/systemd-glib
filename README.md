@@ -6,8 +6,8 @@ systemd-glib is a library wrapping the systemd D-Bus API, using GDBus.
 It can be used from C, Vala, and other languages using GObject introspection
 (though see known issues below).
 
-Samples
--------
+Examples
+--------
 
 A simple example in C, using sync calls with error checking omitted:
 
@@ -19,7 +19,7 @@ int main()
     int i, num_units;
     char *version;
 
-    manager = systemd_get_system_manager_sync(NULL, NULL);
+    manager = systemd_get_system_manager_proxy_sync(NULL, NULL);
 
     g_print("Using %s\n", systemd_manager_get_version(manager));
 
@@ -27,7 +27,7 @@ int main()
 
     g_print("Units:\n");
     for (i = 0; i < num_units; i++) {
-        g_print("\t%s\n", units[i].name;
+        g_print("\t%s\n", units[i].name);
     }
 
     /* ...clean up... */
@@ -39,7 +39,7 @@ Or the same in Vala, this time using async calls:
 ```Vala
 async void run()
 {
-    var manager = yield Systemd.get_system_manager();
+    var manager = yield Systemd.get_system_manager_proxy();
 
     print("Using %s\n", manager.version);
 
@@ -68,10 +68,12 @@ void main()
 }
 ```
 
+or Python...
+
 ```python
 from gi.repository import Systemd
 
-manager = Systemd.get_system_manager_sync()
+manager = Systemd.get_system_manager_proxy_sync()
 units = manager.get_units_sync()
 
 for u in units:
@@ -101,8 +103,9 @@ Licence
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
     General Public License for more details.
 
+
 Bugs? Patches?
----- ---------
+--------------
 
 Please use the github issue tracker.
 
@@ -116,7 +119,7 @@ is compounded by the fact that the getters and setters aren't listed in the
 generated GIR (though the imaginary GObject properties are!). Since there are
 a *lot* of properties involved in the systemd D-Bus interface, this is a bit
 of a problem when it comes to trying to use systemd-glib via introspection
-right now. I've filed the bug for Vala, hopefully it will get sorted soon.
+right now. I've filed the bug for Vala, so hopefully it will be fixed.
 
 In the mean time, a workaround is to use the `get_cached_property()` method of
 the generated proxy class, along with the *D-Bus* name of the property (not
