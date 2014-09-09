@@ -62,3 +62,11 @@ EXTRA_DIST = \
     systemd-glib.pc.in \
     systemd-glib.deps \
     ${NULL}
+
+GITIGNOREFILES = \
+    systemd-interfaces.c \
+    systemd-glib.vapi \
+    systemd-glib.h \
+    ${NULL}
+
+-include $(top_srcdir)/git.mk
