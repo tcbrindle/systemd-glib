@@ -4,7 +4,21 @@ NULL=
 lib_LTLIBRARIES = libsystemd-glib.la
 
 libsystemd_glib_la_SOURCES = \
-    systemd-interfaces.vala \
+    systemd-automount-iface.vala \
+    systemd-device-iface.vala \
+    systemd-job-iface.vala \
+    systemd-manager-iface.vala \
+    systemd-mount-iface.vala \
+    systemd-path-iface.vala \
+    systemd-scope-iface.vala \
+    systemd-service-iface.vala \
+    systemd-slice-iface.vala \
+    systemd-snapshot-iface.vala \
+    systemd-socket-iface.vala \
+    systemd-swap-iface.vala \
+    systemd-target-iface.vala \
+    systemd-timer-iface.vala \
+    systemd-unit-iface.vala \
     ${NULL}
 
 libsystemd_glib_la_VALAFLAGS = \
