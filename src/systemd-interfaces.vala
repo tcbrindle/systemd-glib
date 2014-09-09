@@ -1711,7 +1711,7 @@ public interface Job : DBusProxy
     public abstract string state { owned get; }
 }
 
-public async Manager get_system_manager(Cancellable? cancellable = null) throws IOError
+public async Manager get_system_manager_proxy(Cancellable? cancellable = null) throws IOError
 {
     return yield Bus.get_proxy(BusType.SYSTEM,
                                "org.freedesktop.systemd1",
@@ -1720,7 +1720,7 @@ public async Manager get_system_manager(Cancellable? cancellable = null) throws 
                                cancellable);
 }
 
-public Manager get_system_manager_sync(Cancellable? cancellable = null) throws IOError
+public Manager get_system_manager_proxy_sync(Cancellable? cancellable = null) throws IOError
 {
     return Bus.get_proxy_sync(BusType.SYSTEM,
                               "org.freedesktop.systemd1",
