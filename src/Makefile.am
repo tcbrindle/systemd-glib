@@ -33,7 +33,7 @@ vapidir = ${datadir}/vala/vapi
 vapi_DATA = systemd-glib.vapi systemd-glib.deps
 
 girdir = $(datadir)/gir-1.0
-gir_DATA = Systemd-1.0.gir
+gir_DATA = ${srcdir}/Systemd-1.0.gir
 
 CLEANFILES = ${gir_DATA}
 
